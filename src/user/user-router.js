@@ -37,8 +37,9 @@ userRouter
         password: hashedPassword,
         name,
       }
-
+      console.log('db=', req.app.get('db'))
       const user = await UserService.insertUser(
+    
         req.app.get('db'),
         newUser
       )

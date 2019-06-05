@@ -1,42 +1,18 @@
 # Spaced repetition API!
+This App uses Express.js server and PostgreSQL database
+### API Endpoints
 
-## Local dev setup
+POST /api/auth/token  -->  Authenticates users by username and password
 
-If using user `dunder-mifflin`:
+PUT /api/auth/token  -->  Refreshes users' token
 
-```bash
-mv example.env .env
-createdb -U dunder-mifflin spaced-repetition
-createdb -U dunder-mifflin spaced-repetition-test
-```
+GET  /api/language/  -->  Gets language back from database
 
-If your `dunder-mifflin` user has a password be sure to set it in `.env` for all appropriate fields. Or if using a different user, update appropriately.
+POST /api/language/guess  -->  Users guess is compared to current word, and order list of words changes
 
-```bash
-npm install
-npm run migrate
-env MIGRATION_DB_NAME=spaced-repetition-test npm run migrate
-```
+GET  /api/language/head  -->  Gets next word in the language list
 
-And `npm test` should work at this point
-
-## Configuring Postgres
-
-For tests involving time to run properly, configure your Postgres database to run in the UTC timezone.
-
-1. Locate the `postgresql.conf` file for your Postgres installation.
-   1. E.g. for an OS X, Homebrew install: `/usr/local/var/postgres/postgresql.conf`
-   2. E.g. on Windows, _maybe_: `C:\Program Files\PostgreSQL\11.2\data\postgresql.conf`
-2. Find the `timezone` line and set it to `UTC`:
-
-```conf
-# - Locale and Formatting -
-
-datestyle = 'iso, mdy'
-#intervalstyle = 'postgres'
-timezone = 'UTC'
-#timezone_abbreviations = 'Default'     # Select the set of available time zone
-```
+POST /api/users/  -->  Registers new users to the database
 
 ## Scripts
 

@@ -25,3 +25,8 @@ Run the tests mode `npm test`
 Run the migrations up `npm run migrate`
 
 Run the migrations down `npm run migrate -- 0`
+
+## The Team
+Farah Gustafson - Routing, Services, and Testing 
+
+Quonn Bernard - Routing, Services, and Testing
